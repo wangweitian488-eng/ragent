@@ -175,3 +175,6 @@ sa-token:
   token-style: simple-uuid
   is-log: false
   is-print: false
+
+app:
+  demo-mode: false

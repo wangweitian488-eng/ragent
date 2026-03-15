@@ -15,32 +15,22 @@
  * limitations under the License.
  */
 
-package com.nageoffer.ai.ragent.rag.controller.request;
+package com.nageoffer.ai.ragent.rag.config;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
+/**
+ * 体验环境只读模式配置
+ */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class IntentNodeUpdateRequest {
+@Configuration
+@ConfigurationProperties(prefix = "app")
+public class DemoModeProperties {
 
-    private String name;
-    private Integer level;
-    private String parentCode;
-    private String description;
-    private List<String> examples;
-    private String collectionName;
-    private Integer topK;
-    private Integer kind;
-    private Integer sortOrder;
-    private Integer enabled;
-    private String promptSnippet;
-    private String promptTemplate;
-    private String paramPromptTemplate;
+    /**
+     * 是否开启体验环境只读模式，默认关闭
+     */
+    private Boolean demoMode = false;
 }
